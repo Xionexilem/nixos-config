@@ -1,0 +1,9 @@
+[[mgr.prepend_keymap]]
+on = [ "m" ]
+run = "plugin relative-motions"
+desc = "Trigger a new relative motion"
+
+[[mgr.prepend_keymap]]
+on   = [ "g", "s" ]
+run  = "plugin vcs-files"
+desc = "Показать все Git-изменения в проекте"
