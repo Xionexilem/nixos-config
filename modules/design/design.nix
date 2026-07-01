@@ -8,8 +8,7 @@
     ];
   };
 
-  flake.homeModules.design = { ... }: {
-
+  flake.homeModules.design = { ... }: { };
 }
 
 
