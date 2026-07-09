@@ -1,24 +1,18 @@
-{ self, ... }: {
-  
-  flake.nixosModules.miraiConfiguration = { config, pkgs, lib, ... }: {
+{ self, lib, ... }:
+let
+  toggles = (import ../../toggles.nix) { };
+  pickActive = toggles: modules:
+    lib.flatten (lib.mapAttrsToList
+      (name: enabled:
+        if enabled && modules ? ${name} then [ modules.${name} ] else [ ])
+      toggles);
+in {
+  flake.nixosModules.miraiConfiguration = { config, pkgs, ... }: {
     imports = with self.nixosModules; [
       miraiHardware
       miraiSwap
       myHomeManager
-      wmde
-      virtualisation
-      gpu
-      network
-      sound
-      browser
-      security
-      nh
-      dev
-      flatpak
-      media
-      design
-      games
-    ];
+    ] ++ pickActive toggles self.nixosModules;
 
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
