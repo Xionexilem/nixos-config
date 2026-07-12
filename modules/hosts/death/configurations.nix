@@ -1,100 +1,73 @@
-{ self, inputs, ... }: {
-	
-	flake.nixosModules.deathConfiguration = { config, pkgs, lib, ... }: {
+{ self, lib, ... }:
+let
+  toggles = (import ../../toggles.nix) { };
+  pickActive = toggles: modules:
+    lib.flatten (lib.mapAttrsToList
+      (name: enabled:
+        if enabled && modules ? ${name} then [ modules.${name} ] else [ ])
+      toggles);
+in {
+  flake.nixosModules.deathConfiguration = { config, pkgs, ... }: {
+    imports = with self.nixosModules; [
+      deathHardware
+      myHomeManager
+    ] ++ pickActive toggles self.nixosModules;
 
-		nixpkgs.config.allowUnfree = true;
+    boot.loader.systemd-boot.enable = true;
+    boot.loader.efi.canTouchEfiVariables = true;
 
-		imports = with self.nixosModules; [
-			deathHardware
-			niri
-			kde
-			myHomeManager
-			nh
-			nvidia
-			docker
-			media
-			bluetooth
-			flatpak
-			tailscale
-			dev
-			cuda
-		];
+    nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-		boot.loader.systemd-boot.enable = true;
-		boot.loader.efi.canTouchEfiVariables = true;
+    networking.hostName = "death";
+    networking.networkmanager.enable = true;
 
-		nix.settings.experimental-features = [ "nix-command" "flakes" ];
+    time.timeZone = "Asia/Yekaterinburg";
 
-		networking.hostName = "death";
+    i18n.defaultLocale = "ru_RU.UTF-8";
+    i18n.extraLocaleSettings = {
+      LC_ADDRESS = "ru_RU.UTF-8";
+      LC_IDENTIFICATION = "ru_RU.UTF-8";
+      LC_MEASUREMENT = "ru_RU.UTF-8";
+      LC_MONETARY = "ru_RU.UTF-8";
+      LC_NAME = "ru_RU.UTF-8";
+      LC_NUMERIC = "ru_RU.UTF-8";
+      LC_PAPER = "ru_RU.UTF-8";
+      LC_TELEPHONE = "ru_RU.UTF-8";
+      LC_TIME = "ru_RU.UTF-8";
+    };
 
-		networking.networkmanager.enable = true;
+    services.xserver.enable = true;
+    services.displayManager.sddm.enable = true;
+    services.xserver.xkb = {
+      layout = "us,ru";
+      variant = "";
+      options = "grp:alt_shift_toggle";
+    };
 
-		time.timeZone = "Asia/Yekaterinburg";
+    services.printing.enable = true;
+    services.power-profiles-daemon.enable = true;
 
-		i18n.defaultLocale = "ru_RU.UTF-8";
+    users.users.levm = {
+      isNormalUser = true;
+      description = "Lev Mitrakov";
+      extraGroups = [ "networkmanager" "wheel" ];
+      shell = pkgs.zsh;
+      packages = with pkgs; [ ];
+    };
 
-		i18n.extraLocaleSettings = {
-			LC_ADDRESS = "ru_RU.UTF-8";
-			LC_IDENTIFICATION = "ru_RU.UTF-8";
-			LC_MEASUREMENT = "ru_RU.UTF-8";
-			LC_MONETARY = "ru_RU.UTF-8";
-			LC_NAME = "ru_RU.UTF-8";
-			LC_NUMERIC = "ru_RU.UTF-8";
-			LC_PAPER = "ru_RU.UTF-8";
-			LC_TELEPHONE = "ru_RU.UTF-8";
-			LC_TIME = "ru_RU.UTF-8";
-		};
+    home-manager.users.levm = self.homeModules.levmModule;
 
-		services.xserver.enable = true;
+    services.upower.enable = true;
 
-		services.displayManager.sddm.enable = true;
+    nixpkgs.config.allowUnfree = true;
 
-		services.xserver.xkb = {
-			layout = "us,ru";
-			variant = "";
-			options = "grp:alt_shift_toggle";
-		};
+    programs.firefox.enable = true;
+    programs.zsh.enable = true;
 
-		services.printing.enable = true;
+    environment.systemPackages = with pkgs; [ git wget neovim firefox ];
 
-		services.pulseaudio.enable = false;
-		security.rtkit.enable = true;
-		services.pipewire = {
-			enable = true;
-			alsa.enable = true;
-			alsa.support32Bit = true;
-			pulse.enable = true;
-		};
+    system.stateVersion = "26.11";
 
-		services.power-profiles-daemon.enable = true;
-
-		users.users.levm = {
-			isNormalUser = true;
-			description = "Lev Mitrakov";
-			extraGroups = [ "networkmanager" "wheel" ];
-			shell = pkgs.zsh;
-			packages = with pkgs; [
-			];
-		};
-
-		home-manager.users.levm = self.homeModules.levmModule;
-
-		services.displayManager.autoLogin.enable = false;
-
-		services.upower.enable = true;
-
-		programs.firefox.enable = true;
-		programs.zsh.enable = true;
-
-		environment.systemPackages = with pkgs; [
-			git
-			wget
-			neovim
-			firefox
-		];
-
-		system.stateVersion = "26.05";
-
-	};
+  };
 
 }

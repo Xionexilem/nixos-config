@@ -13,6 +13,7 @@ if args == {} then {
   dev = true;
   media = true;
   design = true;
+  bluetooth = true;
 
   # home-only modules
   git = true;
