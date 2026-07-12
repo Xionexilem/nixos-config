@@ -45,7 +45,7 @@ in {
 
         buildPhase = ''
           runHook preBuild
-          bash "./repack.sh" -o "./app" "${ymExe}"
+          bash "./repack.sh" -p -o "./app" "${ymExe}"
           runHook postBuild
         '';
 
