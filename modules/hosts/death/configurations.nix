@@ -7,7 +7,7 @@ let
         if enabled && modules ? ${name} then [ modules.${name} ] else [ ])
       toggles);
 in {
-  flake.nixosModules.deathConfiguration = { config, pkgs, ... }: {
+  flake.nixosModules.deathConfiguration = { config, pkgs, lib, ... }: {
     imports = with self.nixosModules; [
       deathHardware
       myHomeManager
@@ -54,6 +54,8 @@ in {
       shell = pkgs.zsh;
       packages = with pkgs; [ ];
     };
+
+    services.ollama.enable = lib.mkForce false;
 
     programs.niri.package = self.packages.${pkgs.stdenv.hostPlatform.system}.niri-wrapped-death;
 
