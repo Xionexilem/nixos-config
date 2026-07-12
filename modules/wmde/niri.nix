@@ -1,9 +1,9 @@
 { self, inputs, ... } @ top:
 
 let
-  commonSettings = { pkgs, lib, self' }: {
+  commonSettings = { pkgs, lib, noctaliaPkg }: {
     spawn-at-startup = [
-      (lib.getExe self'.packages.myNoctalia)
+      (lib.getExe noctaliaPkg)
     ];
 
     xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
@@ -48,7 +48,7 @@ let
 
     binds = {
       # Launcher & apps
-      "Mod+S".spawn-sh = "${lib.getExe self'.packages.myNoctalia} ipc call launcher toggle";
+      "Mod+S".spawn-sh = "${lib.getExe noctaliaPkg} ipc call launcher toggle";
       "Mod+Return".spawn-sh = lib.getExe pkgs.kitty;
       "Mod+M".spawn-sh = "${lib.getExe pkgs.kitty} yazi";
 
@@ -88,7 +88,7 @@ in {
     packages = {
       niri-wrapped-mirai = top.inputs.wrapper-modules.wrappers.niri.wrap {
         inherit pkgs;
-        settings = (commonSettings { inherit pkgs lib self'; }) // {
+        settings = (commonSettings { inherit pkgs lib; noctaliaPkg = self'.packages.myNoctalia; }) // {
           outputs = {
             "DP-1" = {
               mode = "1920x1080@144.002";
@@ -125,7 +125,7 @@ in {
 
       niri-wrapped-death = top.inputs.wrapper-modules.wrappers.niri.wrap {
         inherit pkgs;
-        settings = (commonSettings { inherit pkgs lib self'; }) // {
+        settings = (commonSettings { inherit pkgs lib; noctaliaPkg = self'.packages.myNoctaliaDeath; }) // {
           outputs = {
             "eDP-1" = {
               focus-at-startup = _: {};
