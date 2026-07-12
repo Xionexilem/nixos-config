@@ -57,7 +57,21 @@ in {
       packages = with pkgs; [ ];
     };
 
-    home-manager.users.levm = self.homeModules.levmModule;
+    programs.niri.package = self.packages.${pkgs.stdenv.hostPlatform.system}.niri-wrapped-mirai;
+
+    home-manager.users.levm = {
+      imports = [ self.homeModules.levmModule ];
+      services.linux-wallpaperengine.wallpapers = [
+        {
+          monitor = "DP-1";
+          wallpaperId = "2884796594";
+        }
+        {
+          monitor = "DP-2";
+          wallpaperId = "3430398907";
+        }
+      ];
+    };
 
     services.upower.enable = true;
 

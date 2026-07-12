@@ -55,7 +55,17 @@ in {
       packages = with pkgs; [ ];
     };
 
-    home-manager.users.levm = self.homeModules.levmModule;
+    programs.niri.package = self.packages.${pkgs.stdenv.hostPlatform.system}.niri-wrapped-death;
+
+    home-manager.users.levm = {
+      imports = [ self.homeModules.levmModule ];
+      services.linux-wallpaperengine.wallpapers = [
+        {
+          monitor = "eDP-1";
+          wallpaperId = "2884796594";
+        }
+      ];
+    };
 
     services.upower.enable = true;
 
