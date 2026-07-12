@@ -3,7 +3,7 @@
 let
   version = "5.109.1";
   exe_hash = "sha256-IE5Y3PDMlzgtTN+mfGPpaTLJnYgVLv2TuaLUinQ5hQI=";
-  src_hash = "sha256-Fmnh6vDyROOAIPV0h2jT28wnKInGzeBGVbGIdybuhIM=";
+  src_hash = "sha256-8MIkTa/4/j3iPyFB+bxk9kOJMxTz59S0W2LZf/iOJRU=";
 in {
   perSystem = { pkgs, lib, ... }: {
     packages.myYandexMusic =
