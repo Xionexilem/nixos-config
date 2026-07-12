@@ -1,5 +1,7 @@
-{ self, ... }: {
-
+{ self, ... }:
+let
+  ymPkg = self.packages.x86_64-linux.myYandexMusic;
+in {
   flake.homeModules.packages = { pkgs, ... }: {
     nixpkgs.config.allowUnfree = true;
 
@@ -11,7 +13,7 @@
       binutils
       nftables
       pciutils
-      yandex-music
+      ymPkg
       wineWow64Packages.waylandFull
       discord
       unzip
