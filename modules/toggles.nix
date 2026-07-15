@@ -22,8 +22,8 @@ if args == {} then {
   zoxide = true;
   yazi = true;
   wallpaperengine = true;
-  lutris = false;
-  retroarch = false;
+  lutris = true;
+  retroarch = true;
   lazydocker = true;
-  onlyoffice = false;
+  onlyoffice = true;
 } else { }
