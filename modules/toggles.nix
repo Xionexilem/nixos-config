@@ -16,6 +16,7 @@ if args == {} then {
   bluetooth = true;
 
   # home-only modules
+  fonts = true;
   git = true;
   zsh = true;
   kitty = true;
