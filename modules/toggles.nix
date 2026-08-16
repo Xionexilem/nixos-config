@@ -21,7 +21,7 @@ if args == {} then {
   kitty = true;
   zoxide = true;
   yazi = true;
-  wallpaperengine = false;
+  wallpaperengine = true;
   lutris = true;
   retroarch = true;
   lazydocker = true;
