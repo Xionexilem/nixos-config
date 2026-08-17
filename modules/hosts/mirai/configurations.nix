@@ -1,18 +1,7 @@
-{ self, lib, ... }:
-let
-  toggles = (import ../../toggles.nix) { };
-  pickActive = toggles: modules:
-    lib.flatten (lib.mapAttrsToList
-      (name: enabled:
-        if enabled && modules ? ${name} then [ modules.${name} ] else [ ])
-      toggles);
-in {
+{ self, ... }:
+{
   flake.nixosModules.miraiConfiguration = { config, pkgs, ... }: {
-    imports = with self.nixosModules; [
-      miraiHardware
-      miraiSwap
-      myHomeManager
-    ] ++ pickActive toggles self.nixosModules;
+    imports = with self.nixosModules; [ miraiImports ];
 
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
@@ -61,16 +50,6 @@ in {
 
     home-manager.users.levm = {
       imports = [ self.homeModules.levmModule ];
-      services.linux-wallpaperengine.wallpapers = [
-        {
-          monitor = "DP-1";
-          wallpaperId = "2884796594";
-        }
-        {
-          monitor = "DP-2";
-          wallpaperId = "3430398907";
-        }
-      ];
     };
 
     services.upower.enable = true;

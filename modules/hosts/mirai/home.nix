@@ -1,12 +1,5 @@
-{ self, inputs, lib, ... }:
-let
-  toggles = (import ../../toggles.nix) { };
-  pickActive = toggles: modules:
-    lib.flatten (lib.mapAttrsToList
-      (name: enabled:
-        if enabled && modules ? ${name} then [ modules.${name} ] else [ ])
-      toggles);
-in {
+{ self, inputs, ... }:
+{
   flake.homeConfigurations.levm = inputs.home-manager.lib.homeManagerConfiguration {
     pkgs = import inputs.nixpkgs { system = "x86_64-linux"; };
     modules = [
@@ -19,9 +12,24 @@ in {
   };
 
   flake.homeModules.levmModule = { pkgs, ... }: {
-    imports = [ self.homeModules.packages ] ++ pickActive toggles self.homeModules;
+    imports = with self.homeModules; [
+      packages
+      sound
+      media
+      design
+      browser
+      git
+      zsh
+      kitty
+      zoxide
+      yazi
+      lutris
+      retroarch
+      lazydocker
+      onlyoffice
+    ];
 
-    home.stateVersion = "26.05";
+    home.stateVersion = "26.11";
   };
 
 }

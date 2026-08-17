@@ -1,17 +1,24 @@
-{ self, lib, ... }:
-let
-  toggles = (import ../../toggles.nix) { };
-  pickActive = toggles: modules:
-    lib.flatten (lib.mapAttrsToList
-      (name: enabled:
-        if enabled && modules ? ${name} then [ modules.${name} ] else [ ])
-      toggles);
-in {
+{ self, ... }:
+{
   flake.nixosModules.deathConfiguration = { config, pkgs, lib, ... }: {
     imports = with self.nixosModules; [
       deathHardware
       myHomeManager
-    ] ++ pickActive toggles self.nixosModules;
+      sound
+      wmde
+      gpu
+      network
+      browser
+      security
+      nh
+      flatpak
+      virtualisation
+      games
+      dev
+      media
+      design
+      bluetooth
+    ];
 
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;

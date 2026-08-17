@@ -1,9 +1,7 @@
 { self, ... }: {
 
   flake.nixosModules.browser = { pkgs, ... }: {
-    environment.systemPackages = with pkgs; [
-      brave
-    ];
+    environment.systemPackages = with pkgs; [ ];
   };
 
   flake.homeModules.browser = { ... }: {

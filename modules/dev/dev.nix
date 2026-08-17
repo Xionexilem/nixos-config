@@ -6,7 +6,6 @@
       clang
       jdk
       rust
-      ollama
       npm
     ];
   };
