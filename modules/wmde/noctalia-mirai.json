@@ -265,7 +265,7 @@
       ]
     },
     "wallpaper": {
-      "enabled": false,
+      "enabled": true,
       "overviewEnabled": false,
       "directory": "/home/levm/Pictures/Wallpapers",
       "monitorDirectories": [],
@@ -663,8 +663,8 @@
     "openedPanel": "",
     "lockScreenActive": false,
     "wallpapers": {
-      "DP-1": "/nix/store/4a7fczqqh6k0mlbzhh3j0pglhdg3kv5i-noctalia-shell-4.7.6/share/noctalia-shell/Assets/Wallpaper/noctalia.png",
-      "DP-2": "/nix/store/4a7fczqqh6k0mlbzhh3j0pglhdg3kv5i-noctalia-shell-4.7.6/share/noctalia-shell/Assets/Wallpaper/noctalia.png"
+      "DP-1": "/nix/store/iyx9q4zzzfmb51dd28fjjbi2qx424vg8-noctalia-shell-4.7.7/share/noctalia-shell/Assets/Wallpaper/noctalia.png",
+      "DP-2": "/nix/store/iyx9q4zzzfmb51dd28fjjbi2qx424vg8-noctalia-shell-4.7.7/share/noctalia-shell/Assets/Wallpaper/noctalia.png"
     },
     "desktopWidgetsEditMode": false,
     "display": {
@@ -675,10 +675,10 @@
         "width": 1920,
         "height": 1080,
         "x": 0,
-        "y": 630,
+        "y": 650,
         "physical_width": 530,
         "physical_height": 300,
-        "refresh_rate": 60000,
+        "refresh_rate": 144002,
         "vrr_supported": true,
         "vrr_enabled": false,
         "transform": "Normal"
@@ -693,17 +693,17 @@
         "y": 0,
         "physical_width": 530,
         "physical_height": 300,
-        "refresh_rate": 60000,
+        "refresh_rate": 144002,
         "vrr_supported": false,
         "vrr_enabled": false,
         "transform": "90"
       }
     },
     "notificationsState": {
-      "lastSeenTs": 0
+      "lastSeenTs": 1786903708000
     },
     "changelogState": {
-      "lastSeenVersion": ""
+      "lastSeenVersion": "v4.7.7"
     },
     "colorSchemesList": {
       "schemes": [],

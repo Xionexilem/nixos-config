@@ -19,7 +19,7 @@
       dev
       media
       design
-      bluetooth
+      fonts
     ];
 
   };
