@@ -268,11 +268,22 @@
       "enabled": true,
       "overviewEnabled": false,
       "directory": "/home/levm/Pictures/Wallpapers",
-      "monitorDirectories": [],
-      "enableMultiMonitorDirectories": false,
+      "monitorDirectories": [
+        {
+          "directory": "/home/levm/Pictures/Wallpapers/1",
+          "name": "DP-1",
+          "wallpaper": ""
+        },
+        {
+          "directory": "/home/levm/Pictures/Wallpapers/2",
+          "name": "DP-2",
+          "wallpaper": ""
+        }
+      ],
+      "enableMultiMonitorDirectories": true,
       "showHiddenFiles": false,
       "viewMode": "single",
-      "setWallpaperOnAllMonitors": true,
+      "setWallpaperOnAllMonitors": false,
       "linkLightAndDarkWallpapers": true,
       "fillMode": "crop",
       "fillColor": "#000000",
@@ -663,8 +674,8 @@
     "openedPanel": "",
     "lockScreenActive": false,
     "wallpapers": {
-      "DP-1": "/nix/store/iyx9q4zzzfmb51dd28fjjbi2qx424vg8-noctalia-shell-4.7.7/share/noctalia-shell/Assets/Wallpaper/noctalia.png",
-      "DP-2": "/nix/store/iyx9q4zzzfmb51dd28fjjbi2qx424vg8-noctalia-shell-4.7.7/share/noctalia-shell/Assets/Wallpaper/noctalia.png"
+      "DP-1": "/home/levm/Pictures/Wallpapers/1/makima-devil-chainsaw-man-2560x1440-15442-2860080563.jpg",
+      "DP-2": "/home/levm/Pictures/Wallpapers/2/thumb-1920-984407.jpg"
     },
     "desktopWidgetsEditMode": false,
     "display": {
