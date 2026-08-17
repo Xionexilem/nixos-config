@@ -1,10 +1,10 @@
 { self, ... }: {
 
-  flake.nixosModules.kde = { ... }: {
-    services.desktopManager.plasma6.enable = true;
+  flake.nixosModules.kde = { pkgs, ... }: {
+    environment.systemPackages = with pkgs.kdePackages; [
+      plasma-integration
+      xdg-desktop-portal-kde
+    ];
   };
 
 }
-
-
-

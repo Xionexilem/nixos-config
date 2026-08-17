@@ -5,7 +5,7 @@
       enable = true;
       themeFile = "ayu";
       font = {
-        name = "FiraCode Nerd Font Mono";
+        name = "JetBrainsMono Nerd Font Propo";
         size = 11;
       };
       settings = {
