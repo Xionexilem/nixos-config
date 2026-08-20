@@ -1,4 +1,4 @@
-{ self, ... }: {
+{ ... }: {
 
   flake.nixosModules.design = { pkgs, ... }: {
     environment.systemPackages = with pkgs; [
@@ -10,6 +10,3 @@
 
   flake.homeModules.design = { ... }: { };
 }
-
-
-

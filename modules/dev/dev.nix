@@ -1,6 +1,6 @@
-{ self, ... }: {
+{ ... }: {
 
-  flake.nixosModules.dev = { ... }: {
+  flake.nixosModules.dev = { self, pkgs, ... }: {
     imports = with self.nixosModules; [
       python
       clang
@@ -8,7 +8,10 @@
       rust
       npm
     ];
+
+    environment.systemPackages = with pkgs; [
+      opencode
+    ];
   };
 
 }
-
