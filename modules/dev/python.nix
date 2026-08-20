@@ -4,7 +4,7 @@
     environment.systemPackages = with pkgs; [
       python313
       python313Packages.pip
-      pytnon312
+      python312
     ];
   };
 
