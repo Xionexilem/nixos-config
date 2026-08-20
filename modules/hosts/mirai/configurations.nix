@@ -59,9 +59,7 @@
 
     nixpkgs.config.allowUnfree = true;
 
-    environment.systemPackages = with pkgs; [ git wget neovim firefox ];
-
-    system.stateVersion = "26.05";
+    system.stateVersion = "26.11";
 
   };
 

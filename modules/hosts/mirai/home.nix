@@ -14,18 +14,18 @@
   flake.homeModules.levmModule = { pkgs, ... }: {
     imports = with self.homeModules; [
       packages
+      git
+      zsh
+      nvim
+      zoxide
+      kitty
+      yazi
       sound
       media
       design
       browser
-      git
-      zsh
-      kitty
-      zoxide
-      yazi
       lutris
       retroarch
-      lazydocker
       onlyoffice
     ];
 

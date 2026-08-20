@@ -1,7 +1,9 @@
 { self, ... }: {
 
   flake.nixosModules.browser = { pkgs, ... }: {
-    environment.systemPackages = with pkgs; [ ];
+    environment.systemPackages = with pkgs; [
+      wget
+    ];
   };
 
   flake.homeModules.browser = { ... }: {
