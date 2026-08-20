@@ -29,7 +29,17 @@
       plugins = {
         lualine.enable = true;
         telescope.enable = true;
-        neo-tree.enable = true;
+
+        neo-tree = {
+          enable = true;
+          settings = {
+            filesystem = {
+              visible = true;
+              hide_dotgiles = false;
+            };
+          };
+        };
+
         treesitter.enable = true;
 
         web-devicons.enable = true;
