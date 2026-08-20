@@ -1,4 +1,4 @@
-{ self, inputs, pkgs, ... }: {
+{ ... }: {
 
   flake.homeModules.nvim = { pkgs, inputs, ... }: {
 
@@ -8,7 +8,7 @@
 
     programs.nixvim = {
       enable = true;
-      
+
       defaultEditor = true;
       vimAlias = true;
       viAlias = true;
@@ -52,7 +52,7 @@
 
         conform-nvim = {
           enable = true;
-          
+
           settings = {
             formatters_by_ft = {
               nix = [ "nixfmt" ];
@@ -88,6 +88,12 @@
           action = "<cmd>Telescope live_grep<cr>";
           options.desc = "Live grep";
         }
+        {
+          mode = "n";
+          key = "<leader>cd";
+          action = "<cmd>Neotree<cr>";
+          options.desc = "Focus to Neotree";
+        }
       ];
 
       extraPackages = with pkgs; [
@@ -110,4 +116,3 @@
   };
 
 }
-
