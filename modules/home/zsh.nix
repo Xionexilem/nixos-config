@@ -1,4 +1,4 @@
-{ self, ... }: {
+{ ... }: {
 
   flake.homeModules.zsh = { config, pkgs, ... }: {
     programs.zsh = {
@@ -6,6 +6,9 @@
       enableCompletion = true;
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
+      initContent = ''
+        bindkey -e
+      '';
       plugins = [
         {
           name = "powerlevel10k";
@@ -22,5 +25,3 @@
   };
 
 }
-      
-
