@@ -10,7 +10,6 @@
       theme = lib.importTOML ./yazi/theme.toml;
       
       plugins = {
-        git = pkgs.yaziPlugins.git;
         drag = pkgs.yaziPlugins.drag;
         sudo = pkgs.yaziPlugins.sudo;
         chmod = pkgs.yaziPlugins.chmod;

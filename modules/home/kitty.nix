@@ -10,6 +10,7 @@
       };
       settings = {
         background_opacity = "1";
+        scroll_prompt_to_top = "yes";
       };
     };
 

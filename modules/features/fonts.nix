@@ -4,11 +4,11 @@
     fonts.packages = with pkgs; [
       noto-fonts
       noto-fonts-color-emoji
-      nerd-fonts.fira-code
+      nerd-fonts.hack
     ];
 
     fonts.fontconfig.defaultFonts = {
-      monospace = [ "FiraCode Nerd Font Propo" "Noto Sans Mono" ];
+      monospace = [ "Hack Nerd Font" "Noto Sans Mono" ];
       sansSerif = [ "Noto Sans" ];
       serif = [ "Noto Serif" ];
     };

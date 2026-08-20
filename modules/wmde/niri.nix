@@ -22,7 +22,13 @@ let
     };
 
     layout = {
-      gaps = 5;
+      focus-ring.off = _: { };
+      border = {
+        width = 3;
+        active-color = "#81afeb";
+        inactive-color = "#313244";
+      };
+      gaps = 20;
       preset-column-widths = [
         {
           proportion = 0.5;
@@ -44,13 +50,30 @@ let
       ];
     };
 
+    window-rules = [
+      {
+        geometry-corner-radius = 12;
+        clip-to-geometry = true;
+      }
+    ];
+
     prefer-no-csd = _: {};
 
     binds = {
       # Launcher & apps
       "Mod+S".spawn-sh = "${lib.getExe noctaliaPkg} ipc call launcher toggle";
       "Mod+Return".spawn-sh = lib.getExe pkgs.kitty;
-      "Mod+M".spawn-sh = "${lib.getExe pkgs.kitty} yazi";
+      "Mod+Y".spawn-sh = "${lib.getExe pkgs.kitty} yazi";
+      "Mod+M".spawn-sh = "${lib.getExe pkgs.kitty} kew";
+
+      # Notifications
+      "Mod+N".spawn-sh = "${lib.getExe noctaliaPkg} ipc call notifications toggle";
+      "Mod+Shift+N".spawn-sh = "${lib.getExe noctaliaPkg} ipc call notifications clear";
+
+      # Media
+      "XF86AudioPlay".spawn-sh = "${lib.getExe noctaliaPkg} ipc call media toggle";
+      "XF86AudioNext".spawn-sh = "${lib.getExe noctaliaPkg} ipc call media next";
+      "XF86AudioPrev".spawn-sh = "${lib.getExe noctaliaPkg} ipc call media previous";
 
       # Close & screenshot
       "Mod+Q".close-window = _: {};
