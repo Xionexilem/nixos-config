@@ -34,8 +34,11 @@
           enable = true;
           settings = {
             filesystem = {
-              visible = true;
-              hide_dotgiles = false;
+              filtered_items = {
+                visible = true;
+                hide_dotgiles = false;
+                hide_gitignored = false;
+              };
             };
           };
         };
