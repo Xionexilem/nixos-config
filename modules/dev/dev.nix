@@ -1,6 +1,6 @@
-{ ... }: {
+{ self, ... }: {
 
-  flake.nixosModules.dev = { self, pkgs, ... }: {
+  flake.nixosModules.dev = { pkgs, ... }: {
     imports = with self.nixosModules; [
       python
       clang
