@@ -136,6 +136,12 @@
           action = "<cmd>Git status<cr>";
           options.desc = "Git status";
         }
+        {
+          mode = "n";
+          key = "<leader>gc";
+          action = "<cmd>Git commit -m ''";
+          options.desc = "Git fast commit";
+        }
       ];
 
       extraPackages = with pkgs; [
