@@ -139,7 +139,7 @@
         {
           mode = "n";
           key = "<leader>gc";
-          action = "<cmd>Git commit -m ''";
+          action = "<cmd>Git commit<cr>";
           options.desc = "Git fast commit";
         }
       ];
