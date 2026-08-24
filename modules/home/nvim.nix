@@ -145,6 +145,18 @@
           action = "<cmd>Git commit<cr>";
           options.desc = "Git fast commit";
         }
+        {
+          mode = "n";
+          key = "A-,";
+          action = "<cmd>BufferPrevious<cr>";
+          options.desc = "Buffer prev file";
+        }
+        {
+          mode = "n";
+          key = "A-.";
+          action = "<cmd>BufferNext<cr>";
+          options.desc = "Buffer next file";
+        }
       ];
 
       extraPackages = with pkgs; [
