@@ -29,11 +29,14 @@
       plugins = {
         lualine.enable = true;
         telescope.enable = true;
+        fugitive.enable = true;
+        noice.enable = true;
 
         neo-tree = {
           enable = true;
           settings = {
             filesystem = {
+              follow_current_file.enabled = true;
               filtered_items = {
                 visible = true;
                 hide_dotgiles = false;
@@ -126,6 +129,12 @@
           key = "<leader>cd";
           action = "<cmd>Neotree<cr>";
           options.desc = "Focus to Neotree";
+        }
+        {
+          mode = "n";
+          key = "<leader>gs";
+          action = "<cmd>Git status<cr>";
+          options.desc = "Git status";
         }
       ];
 
