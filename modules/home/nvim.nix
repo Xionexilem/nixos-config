@@ -33,7 +33,7 @@
         fugitive.enable = true;
         noice.enable = true;
         notify.enable = true;
-        barbar.enable = true;
+        bufferline.enable = true;
 
         neo-tree = {
           enable = true;
@@ -147,15 +147,21 @@
         }
         {
           mode = "n";
-          key = "A-,";
-          action = "<cmd>BufferPrevious<cr>";
+          key = "<S-Tab>";
+          action = "<cmd>BufferLineCyclePrev<cr>";
           options.desc = "Buffer prev file";
         }
         {
           mode = "n";
-          key = "A-.";
-          action = "<cmd>BufferNext<cr>";
+          key = "<Tab>";
+          action = "<cmd>BufferLineCycleNext<cr>";
           options.desc = "Buffer next file";
+        }
+        {
+          mode = "n";
+          key = "<leader>q";
+          action = "<cmd>BufferLinePickClose<cr>";
+          options.desc = "Buffer close file";
         }
       ];
 
