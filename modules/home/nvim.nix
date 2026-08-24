@@ -31,6 +31,7 @@
         telescope.enable = true;
         fugitive.enable = true;
         noice.enable = true;
+        notify.enable = true;
 
         neo-tree = {
           enable = true;
