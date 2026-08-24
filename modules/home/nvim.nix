@@ -22,6 +22,7 @@
         shiftwidth = 2;
         tabstop = 2;
         termguicolors = true;
+        hidden = true;
       };
 
       colorschemes.ayu.enable = true;
@@ -32,6 +33,7 @@
         fugitive.enable = true;
         noice.enable = true;
         notify.enable = true;
+        barbar.enable = true;
 
         neo-tree = {
           enable = true;
