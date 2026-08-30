@@ -2,7 +2,7 @@
 
   flake.nixosModules.audit = { ... }: {
     security = {
-      audit = {
+      auditd = {
         enable = true;
 
         settings = {
@@ -13,7 +13,7 @@
         };
       };
 
-      auditd = {
+      audit = {
         enable = true;
 
         rules = [
