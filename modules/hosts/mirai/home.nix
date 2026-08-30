@@ -20,6 +20,7 @@
       zoxide
       kitty
       yazi
+      cursor
       sound
       media
       design
@@ -33,4 +34,3 @@
   };
 
 }
-
