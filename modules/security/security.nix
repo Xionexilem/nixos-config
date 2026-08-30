@@ -5,7 +5,6 @@
       wireshark
       tcpdump
       audit
-      suricata
     ];
 
     environment.systemPackages = with pkgs; [
