@@ -37,12 +37,14 @@
 
         obsidian = {
           enable = true;
-          workspaces = [
-            {
-              name = "tech";
-              path = "~/obsidian/tech";
-            }
-          ];
+          settings = {
+            workspaces = [
+              {
+                name = "tech";
+                path = "~/obsidian/tech";
+              }
+            ];
+          };
         };
 
         neo-tree = {
