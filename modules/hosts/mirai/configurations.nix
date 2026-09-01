@@ -7,7 +7,10 @@
     boot.loader.efi.canTouchEfiVariables = true;
     boot.kernelPackages = pkgs.linuxKernel.packages.linux_7_1;
 
-    nix.settings.experimental-features = [ "nix-command" "flakes" ];
+    nix.settings.experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
 
     networking.hostName = "mirai";
     networking.networkmanager.enable = true;
@@ -28,7 +31,18 @@
     };
 
     services.xserver.enable = true;
-    services.displayManager.sddm.enable = true;
+
+    environment.systemPackages = with pkgs; [
+      where-is-my-sddm-theme
+    ];
+
+    services.displayManager.sddm = {
+      enable = true;
+      extraPackages = with pkgs; [
+        where-is-my-sddm-theme
+      ];
+      theme = "where_is_my_sddm_theme";
+    };
     services.xserver.xkb = {
       layout = "us,ru";
       variant = "";
@@ -41,7 +55,11 @@
     users.users.levm = {
       isNormalUser = true;
       description = "Lev Mitrakov";
-      extraGroups = [ "networkmanager" "wheel" "docker" ];
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+        "docker"
+      ];
       shell = pkgs.zsh;
       packages = with pkgs; [ ];
     };

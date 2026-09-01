@@ -20,9 +20,8 @@
       ouch
       zathura
       gnumake
+      obsidian
     ];
   };
 
 }
-      
-
