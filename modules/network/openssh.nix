@@ -11,7 +11,7 @@
 
     users.users.tsst = {
       openssh.authorizedKeys.keys = [
-        "SHA256:aA98cgw0hX5l2ABbSJldSe2PeUSqPjmkbbdH+FClme4 lev.mitrakov@bk.ru"
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILluqRs1cUARlOxrAy4Ymjt1W8lj80OXMGbaPHV0k0EL lev.mitrakov@bk.ru"
       ];
     };
   };
