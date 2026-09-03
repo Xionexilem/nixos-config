@@ -17,6 +17,7 @@
       dev
       media
       bluetooth
+      openssh
       fonts
     ];
 
