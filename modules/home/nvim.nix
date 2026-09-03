@@ -35,18 +35,6 @@
         notify.enable = true;
         bufferline.enable = true;
 
-        obsidian = {
-          enable = true;
-          settings = {
-            workspaces = [
-              {
-                name = "tech";
-                path = "~/obsidian/tech";
-              }
-            ];
-          };
-        };
-
         neo-tree = {
           enable = true;
           settings = {
