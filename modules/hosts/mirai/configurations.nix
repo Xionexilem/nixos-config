@@ -43,6 +43,7 @@
       ];
       theme = "where_is_my_sddm_theme";
     };
+
     services.xserver.xkb = {
       layout = "us,ru";
       variant = "";

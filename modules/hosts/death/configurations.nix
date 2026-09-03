@@ -53,7 +53,19 @@
       };
 
       services.xserver.enable = true;
-      services.displayManager.sddm.enable = true;
+
+      environment.systemPackages = with pkgs; [
+        where-is-my-sddm-theme
+      ];
+
+      services.displayManager.sddm = {
+        enable = true;
+        extraPackages = with pkgs; [
+          where-is-my-sddm-theme
+        ];
+        theme = "where_is_my_sddm_theme";
+      };
+
       services.xserver.xkb = {
         layout = "us,ru";
         variant = "";
@@ -78,29 +90,12 @@
 
       programs.niri.package = self.packages.${pkgs.stdenv.hostPlatform.system}.niri-wrapped-death;
 
-      home-manager.users.levm = {
-        imports = [ self.homeModules.levmModule ];
-        services.linux-wallpaperengine.wallpapers = [
-          {
-            monitor = "eDP-1";
-            wallpaperId = "2884796594";
-          }
-        ];
-      };
-
       services.upower.enable = true;
 
       nixpkgs.config.allowUnfree = true;
 
       programs.firefox.enable = true;
       programs.zsh.enable = true;
-
-      environment.systemPackages = with pkgs; [
-        git
-        wget
-        neovim
-        firefox
-      ];
 
       system.stateVersion = "26.11";
 
