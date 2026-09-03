@@ -265,7 +265,7 @@
     "wallpaper": {
       "enabled": true,
       "overviewEnabled": false,
-      "directory": "/home/levm/Изображения",
+      "directory": "/home/tsst/Изображения",
       "monitorDirectories": [],
       "enableMultiMonitorDirectories": false,
       "showHiddenFiles": false,
@@ -661,7 +661,7 @@
     "openedPanel": "",
     "lockScreenActive": false,
     "wallpapers": {
-      "eDP-1": "/home/levm/Изображения/makima-cool-chainsaw-man_bWprZWmUmZqaraWkpJRmbmdlrWZlbWU-3543517314.jpg"
+      "eDP-1": "/home/tsst/Изображения/makima-4k-chainsaw-man-art-2022_bWxtaWiUmZqaraWkpJRmbmdlrWZlbWU-2891180922.jpg"
     },
     "desktopWidgetsEditMode": false,
     "display": {
@@ -682,7 +682,7 @@
       }
     },
     "notificationsState": {
-      "lastSeenTs": 1784460496000
+      "lastSeenTs": 0
     },
     "changelogState": {
       "lastSeenVersion": "v4.7.7"
