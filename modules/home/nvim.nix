@@ -27,6 +27,11 @@
 
       colorschemes.ayu.enable = true;
 
+      extraPython3Packages =
+        p: with p; [
+          celery-types
+        ];
+
       plugins = {
         lualine.enable = true;
         telescope.enable = true;
@@ -57,6 +62,7 @@
           enable = true;
 
           servers = {
+            bashls.enable = true;
             nil_ls.enable = true;
             lua_ls.enable = true;
             rust_analyzer = {

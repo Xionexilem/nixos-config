@@ -21,6 +21,7 @@
       zathura
       gnumake
       obsidian
+      plantuml
     ];
   };
 
