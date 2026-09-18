@@ -39,6 +39,7 @@
         noice.enable = true;
         notify.enable = true;
         bufferline.enable = true;
+        plantuml-syntax.enable = true;
 
         neo-tree = {
           enable = true;

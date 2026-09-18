@@ -1,26 +1,74 @@
 { self, ... }: {
 
-  flake.nixosModules.deathImports = { ... }: {
+  flake.nixosModules.deathImports = { pkgs, ... }: {
 
     imports = with self.nixosModules; [
+
+      # - main -
       deathHardware
       myHomeManager
-      sound
-      wmde
-      gpu
-      network
-      browser
-      security
       nh
-      flatpak
-      virtualisation
-      dev
-      media
+
+      # - gpu -
+      nvidida
+
+      # - network -
+      dns
+      firewall-tg
+      firewall
       bluetooth
+
+      # - server -
       openssh
+      plantuml
+
+      # - sound -
+      pipewire
+
+      # - security -
+      # empty
+
+      # - virtualisation -
+      docker
+
+      # - window manager -
+      niri
+
+      # - visual style -
       fonts
+
+      # - package manager -
+      flatpak
+
+      # - dev -
+      clang
+      jdk
+      npm
+      python
+      rust
+
+      # - media -
+      # empty
+
+      # - games -
+      # empty
+
     ];
 
+    environment.systemPackages = with pkgs; [
+
+      # - security -
+      openssl
+
+      # - media -
+      kew
+      ffmpeg
+
+      # - games -
+      winetricks
+      protontricks
+
+    ];
   };
 
 }

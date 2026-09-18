@@ -32,16 +32,13 @@
 
     services.xserver.enable = true;
 
-    environment.systemPackages = with pkgs; [
-      where-is-my-sddm-theme
-    ];
-
-    services.displayManager.sddm = {
-      enable = true;
-      extraPackages = with pkgs; [
-        where-is-my-sddm-theme
-      ];
-      theme = "where_is_my_sddm_theme";
+    services.displayManager = {
+      defaultSession = "niri";
+      sddm = {
+        enable = true;
+        wayland.enable = true;
+        theme = "elarun";
+      };
     };
 
     services.xserver.xkb = {
@@ -64,7 +61,10 @@
       packages = with pkgs; [ ];
     };
 
-    programs.niri.package = self.packages.${pkgs.stdenv.hostPlatform.system}.niri-wrapped-death;
+    programs.niri = {
+      enable = true;
+      package = self.packages.${pkgs.stdenv.hostPlatform.system}.niri-wrapped-death;
+    };
 
     home-manager.users.tsst = {
       imports = [ self.homeModules.tsstModule ];
