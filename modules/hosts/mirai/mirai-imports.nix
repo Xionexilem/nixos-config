@@ -68,7 +68,7 @@
 
       # - design -
       blender
-      blockbenck
+      blockbench
       gimp-with-plugins
 
       # - games -
