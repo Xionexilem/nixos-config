@@ -5,7 +5,7 @@
 
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
-    boot.kernelPackages = pkgs.linuxKernel.packages.linux_7_1;
+    boot.kernelPackages = pkgs.linuxKernel.packages.linux_7_2;
 
     nix.settings.experimental-features = [
       "nix-command"
