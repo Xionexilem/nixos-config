@@ -10,7 +10,7 @@
       nh
 
       # - gpu -
-      nvidida
+      nvidia
 
       # - network -
       dns

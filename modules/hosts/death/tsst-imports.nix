@@ -4,7 +4,6 @@
     nixpkgs.config.allowUnfree = true;
 
     imports = with self.homeModules; [
-      packages
 
       # - shell -
       zsh
