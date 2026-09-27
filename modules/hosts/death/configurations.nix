@@ -34,10 +34,26 @@
 
     services.displayManager = {
       defaultSession = "niri";
-      sddm = {
+      ly = {
         enable = true;
-        wayland.enable = true;
-        theme = "elarun";
+        settings = {
+          animation = "matrix";
+          animation_timeout_sec = 0;
+
+          bg = "0x00000000";
+          fg = "0x00FFFFFF";
+          border_fg = "0x00FFFFFF";
+          error_fg = "0x01FF0000";
+
+          box_title = " Login ";
+
+          cmatrix_fg = "0x0000FF00";
+          cmatrix_head_col = "0x01FFFFFF";
+
+          clear_password = true;
+          default_input = "login";
+          full_color = true;
+        };
       };
     };
 
